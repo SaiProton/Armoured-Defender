@@ -69,8 +69,8 @@ namespace Armoured_Defender.Entities.Player
 
         public bool OutBoundsCheck()
         {
-            return ballGraphic.Location.X > Screen.PrimaryScreen.Bounds.Width || ballGraphic.Location.X < 0 ||
-                   ballGraphic.Location.Y > Screen.PrimaryScreen.Bounds.Height || ballGraphic.Location.Y < 0;
+            return ballGraphic.Location.X > Screen.PrimaryScreen.Bounds.Width || ballGraphic.Location.X  + ballGraphic.Width < 0 ||
+                   ballGraphic.Location.Y > Screen.PrimaryScreen.Bounds.Height || ballGraphic.Location.Y + ballGraphic.Height < 0;
         }
     }
 }

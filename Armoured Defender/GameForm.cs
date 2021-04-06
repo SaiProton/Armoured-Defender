@@ -1,4 +1,5 @@
-﻿using Armoured_Defender.Entities.Player;
+﻿using Armoured_Defender.Entities.Enemy;
+using Armoured_Defender.Entities.Player;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +17,10 @@ namespace Armoured_Defender
     {
         private Tank player;
 
+        public static int gameScore = 0;
+
         public static ObservableCollection<Ball> existingBalls { get; private set; }
+        public static ObservableCollection<Alien> existingAliens { get; private set; }
         
         public GameForm()
         {
@@ -31,6 +35,17 @@ namespace Armoured_Defender
 
             existingBalls = new ObservableCollection<Ball>();
             existingBalls.CollectionChanged += ExistingBalls_CollectionChanged;
+
+            existingAliens = new ObservableCollection<Alien>();
+            existingAliens.CollectionChanged += ExistingAliens_CollectionChanged;
+        }
+
+        private void ExistingAliens_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if(e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+            {
+                Controls.Add(existingAliens.Last().alienGraphic);
+            }
         }
 
         private void ExistingBalls_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -45,7 +60,7 @@ namespace Armoured_Defender
         {
             player.Update();
             
-            for(int i = existingBalls.Count - 1; i >= 0; i--)
+            for(int i = existingBalls.Count -  1; i >= 0; i--)
             {
                 if(existingBalls[i].OutBoundsCheck())
                 {
@@ -54,6 +69,11 @@ namespace Armoured_Defender
                 {
                     existingBalls[i].Update();
                 }
+            }
+
+            for(int i = existingAliens.Count - 1; i >= 0; i--)
+            {
+                existingAliens[i].Update();
             }
         }
 
