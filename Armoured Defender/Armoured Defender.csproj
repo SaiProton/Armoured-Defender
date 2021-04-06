@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Player\Ball.cs" />
     <Compile Include="Entities\Player\Cannon.cs" />
     <Compile Include="Entities\Player\Tank.cs" />
     <Compile Include="GameForm.cs">

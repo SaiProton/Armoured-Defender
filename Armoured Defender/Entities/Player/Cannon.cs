@@ -11,12 +11,15 @@ namespace Armoured_Defender.Entities.Player
     class Cannon
     {
         public PictureBox cannonGraphic;
+        public int maxBalls = 3;
+
+        private int cannonShootSpeed = 10;
 
         private int shiftXConstant;
         private int shiftYConstant;
 
         private const int scaleDownFactor = 5;
-        private string cannonGraphicPath = "../../Resources/Entities/Player/TURRET.png";
+        private string cannonGraphicPath = "../../Resources/Entities/Player/TURRET-DEFAULT.png";
 
         public Cannon(Point tankLocation, int tankWidth)
         {
@@ -36,13 +39,18 @@ namespace Armoured_Defender.Entities.Player
             return new PictureBox
             {
                 Name = "Cannon",
+                
                 Size = new Size(tankWidth / scaleDownFactor, (int)((tankWidth / scaleDownFactor) / aspectRatio)),
                 ImageLocation = cannonGraphicPath,
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.Transparent,
-                
             };
         }
+
+        public void Shoot(Point mousePoint)
+        {
+            GameForm.existingBalls.Add(new Ball(cannonGraphic.Location, cannonGraphic.Width, mousePoint, cannonShootSpeed));
+        } 
 
         public void Update(int tankPos)
         {

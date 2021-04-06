@@ -1,6 +1,7 @@
 ﻿using Armoured_Defender.Entities.Player;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -13,8 +14,10 @@ namespace Armoured_Defender
 {
     public partial class GameForm : Form
     {
-        Tank player;
+        private Tank player;
 
+        public static ObservableCollection<Ball> existingBalls { get; private set; }
+        
         public GameForm()
         {
             InitializeComponent();
@@ -25,17 +28,45 @@ namespace Armoured_Defender
             Controls.Add(player.cannon.cannonGraphic);
 
             KeyPress += GameForm_KeyPress;
+
+            existingBalls = new ObservableCollection<Ball>();
+            existingBalls.CollectionChanged += ExistingBalls_CollectionChanged;
+        }
+
+        private void ExistingBalls_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+            {
+                Controls.Add(existingBalls.Last().ballGraphic);
+            }
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             player.Update();
             
+            for(int i = existingBalls.Count - 1; i >= 0; i--)
+            {
+                if(existingBalls[i].OutBoundsCheck())
+                {
+                    existingBalls.RemoveAt(i);
+                } else
+                {
+                    existingBalls[i].Update();
+                }
+            }
         }
 
         private void GameForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            player.SetAcceleration(e.KeyChar);
+            if (e.KeyChar == ' ' && existingBalls.Count < player.cannon.maxBalls)
+            {
+                player.cannon.Shoot(Cursor.Position);
+            }
+            else
+            {
+                player.SetAcceleration(e.KeyChar);
+            }
         }
 
         protected override CreateParams CreateParams
@@ -47,5 +78,6 @@ namespace Armoured_Defender
                 return cp;
             }
         }
+        
     }
 }

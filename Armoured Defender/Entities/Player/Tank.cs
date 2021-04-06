@@ -22,7 +22,7 @@ namespace Armoured_Defender.Entities.Player
         private const double bounciFactor = 0.25;
 
         public PictureBox tankGraphic;
-        private const string tankGraphicPath = "../../Resources/Entities/Player/TANK-01.png";
+        private const string tankGraphicPath = "../../Resources/Entities/Player/TANK-02.png";
 
         public Cannon cannon;
 
@@ -60,7 +60,7 @@ namespace Armoured_Defender.Entities.Player
             wallCollisionCheck();
 
             tankGraphic.Left = (int)xPos;
- 
+
             acceleration = velocity * frictionFactor;
 
             cannon.Update((int)xPos);
