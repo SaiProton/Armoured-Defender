@@ -13,6 +13,8 @@ namespace Armoured_Defender
 {
     public partial class GameForm : Form
     {
+        public static int gameScore = 0;
+
         Tank player;
 
         public GameForm()
@@ -46,6 +48,11 @@ namespace Armoured_Defender
                 cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                 return cp;
             }
+        }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -54,11 +54,23 @@
     <Compile Include="GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameOverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameOverForm.Designer.cs">
+      <DependentUpon>GameOverForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LeaderForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LeaderForm.Designer.cs">
       <DependentUpon>LeaderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RulesForm.Designer.cs">
+      <DependentUpon>RulesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
@@ -71,8 +83,14 @@
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GameOverForm.resx">
+      <DependentUpon>GameOverForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LeaderForm.resx">
       <DependentUpon>LeaderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RulesForm.resx">
+      <DependentUpon>RulesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
