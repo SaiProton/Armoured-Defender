@@ -36,7 +36,7 @@
             // GameTimer
             // 
             this.GameTimer.Enabled = true;
-            this.GameTimer.Interval = 20;
+            this.GameTimer.Interval = 10;
             this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
             // GameForm
@@ -53,7 +53,6 @@
             this.Name = "GameForm";
             this.Text = "ARMOURED DEFENDER";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.GameForm_Load);
             this.ResumeLayout(false);
 
         }
