@@ -54,9 +54,9 @@ namespace Armoured_Defender
             this.lblRules.BackColor = System.Drawing.Color.Transparent;
             this.lblRules.Font = new System.Drawing.Font("OCR A Extended", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRules.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblRules.Location = new System.Drawing.Point(42, 127);
+            this.lblRules.Location = new System.Drawing.Point(28, 127);
             this.lblRules.Name = "lblRules";
-            this.lblRules.Size = new System.Drawing.Size(822, 700);
+            this.lblRules.Size = new System.Drawing.Size(822, 725);
             this.lblRules.TabIndex = 1;
             this.lblRules.Text = resources.GetString("lblRules.Text");
             // 
