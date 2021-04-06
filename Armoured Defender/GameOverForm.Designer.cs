@@ -140,7 +140,7 @@ namespace Armoured_Defender
             this.btnGoToMain.Name = "btnGoToMain";
             this.btnGoToMain.Size = new System.Drawing.Size(276, 47);
             this.btnGoToMain.TabIndex = 7;
-            this.btnGoToMain.Text = "Go to Main Menu ";
+            this.btnGoToMain.Text = "Go to &Main Menu ";
             this.btnGoToMain.UseVisualStyleBackColor = false;
             this.btnGoToMain.Click += new System.EventHandler(this.btnGoToMain_Click);
             // 

@@ -52,7 +52,10 @@ namespace Armoured_Defender
             {
                 lblGetName.Show();
                 lblLeadConfirm.Show();
+
                 txbname.Show();
+                txbname.Text = "";
+
                 btnEnter.Show();
             }
             //If the user is not in the top 10 then the special labels and textboxes are hidden 

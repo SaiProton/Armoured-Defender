@@ -98,6 +98,10 @@ namespace Armoured_Defender
                 return cp;
             }
         }
-        
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -54,7 +54,7 @@ namespace Armoured_Defender
             this.lblRules.BackColor = System.Drawing.Color.Transparent;
             this.lblRules.Font = new System.Drawing.Font("OCR A Extended", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRules.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblRules.Location = new System.Drawing.Point(28, 127);
+            this.lblRules.Location = new System.Drawing.Point(27, 127);
             this.lblRules.Name = "lblRules";
             this.lblRules.Size = new System.Drawing.Size(822, 725);
             this.lblRules.TabIndex = 1;
@@ -84,7 +84,7 @@ namespace Armoured_Defender
             this.btnGoToMain.Name = "btnGoToMain";
             this.btnGoToMain.Size = new System.Drawing.Size(323, 44);
             this.btnGoToMain.TabIndex = 3;
-            this.btnGoToMain.Text = "Go Back To Main";
+            this.btnGoToMain.Text = "Go Back To &Main";
             this.btnGoToMain.UseVisualStyleBackColor = false;
             this.btnGoToMain.Click += new System.EventHandler(this.btnGoToMain_Click);
             // 
@@ -101,7 +101,6 @@ namespace Armoured_Defender
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.Name = "RulesForm";
-            this.Text = "RulesForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RulesForm_Load);
             this.ResumeLayout(false);

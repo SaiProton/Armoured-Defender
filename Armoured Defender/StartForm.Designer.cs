@@ -111,6 +111,9 @@
             // 
             // lblGameTitle
             // 
+            this.lblGameTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGameTitle.AutoSize = true;
             this.lblGameTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblGameTitle.Font = new System.Drawing.Font("OCR A Extended", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,7 +231,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1985, 1126);
+            this.ClientSize = new System.Drawing.Size(1942, 1102);
             this.Controls.Add(this.pbAlien4);
             this.Controls.Add(this.pbAlien3);
             this.Controls.Add(this.pbAlien2);
