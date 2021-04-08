@@ -89,7 +89,7 @@ namespace Armoured_Defender
 
                 //Replaces the 10 name and score with the current name and score of the user 
                 arrUserscores[9] = EntityManager.score.ToString();
-                arrUsernames[9] = txbname.Text;
+                arrUsernames[9] = txbname.Text.ToUpper();
 
                 //Sorts the score and user name array in decreasing order 
                 sortArray();
