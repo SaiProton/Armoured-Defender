@@ -40,11 +40,11 @@ namespace Armoured_Defender
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("OCR A Extended", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(47, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 83);
+            this.label1.Size = new System.Drawing.Size(247, 91);
             this.label1.TabIndex = 0;
             this.label1.Text = "Rules";
             // 
@@ -52,11 +52,11 @@ namespace Armoured_Defender
             // 
             this.lblRules.AutoSize = true;
             this.lblRules.BackColor = System.Drawing.Color.Transparent;
-            this.lblRules.Font = new System.Drawing.Font("OCR A Extended", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRules.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRules.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblRules.Location = new System.Drawing.Point(27, 127);
             this.lblRules.Name = "lblRules";
-            this.lblRules.Size = new System.Drawing.Size(822, 725);
+            this.lblRules.Size = new System.Drawing.Size(623, 638);
             this.lblRules.TabIndex = 1;
             this.lblRules.Text = resources.GetString("lblRules.Text");
             // 
@@ -64,7 +64,7 @@ namespace Armoured_Defender
             // 
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExit.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.DarkRed;
             this.btnExit.Location = new System.Drawing.Point(1396, 26);
             this.btnExit.Name = "btnExit";
@@ -78,7 +78,7 @@ namespace Armoured_Defender
             // 
             this.btnGoToMain.BackColor = System.Drawing.Color.Transparent;
             this.btnGoToMain.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGoToMain.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGoToMain.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnGoToMain.Location = new System.Drawing.Point(962, 26);
             this.btnGoToMain.Name = "btnGoToMain";

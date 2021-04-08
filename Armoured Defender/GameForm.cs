@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections.Specialized;
+using System.Media;
 
 namespace Armoured_Defender
 {
@@ -45,6 +46,8 @@ namespace Armoured_Defender
 
         // detects whether a key is held down or not
         private bool keyPress = false;
+
+        private SoundPlayer soundPlayer;
         
         public GameForm()
         {
@@ -71,6 +74,15 @@ namespace Armoured_Defender
             // Similarly, we subscribe more methods for the Form's native KeyDown and KeyUp handlers to detect user input
             KeyDown += GameForm_KeyDown;
             KeyUp += GameForm_KeyUp;
+
+            soundPlayer = new SoundPlayer();
+            soundPlayer.SoundLocation = "../../Resources/Music and Sounds/Crunch.wav";
+        }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+            soundPlayer.Load();
+            soundPlayer.PlayLooping();
         }
 
         // calls when the laser collection is updated; this means it will call when any change occurs within the collection,
@@ -161,6 +173,17 @@ namespace Armoured_Defender
 
             // updates the score text using EntityManager's score count
             ScoreText.Text = EntityManager.score.ToString();
+        }
+
+        // closes application if esc is pressed
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                Application.Exit();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

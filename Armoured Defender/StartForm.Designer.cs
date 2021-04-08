@@ -32,24 +32,19 @@
             this.StartButton = new System.Windows.Forms.Button();
             this.LeaderboardButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
-            this.btnGameOver = new System.Windows.Forms.Button();
             this.lblGameTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRules = new System.Windows.Forms.Button();
-            this.pbTankBody = new System.Windows.Forms.PictureBox();
-            this.pbTurret = new System.Windows.Forms.PictureBox();
             this.pbAlien1 = new System.Windows.Forms.PictureBox();
-            this.pbLaser = new System.Windows.Forms.PictureBox();
             this.pbAlien2 = new System.Windows.Forms.PictureBox();
             this.pbAlien3 = new System.Windows.Forms.PictureBox();
             this.pbAlien4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTankBody)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTurret)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLaser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // StartButton
@@ -59,7 +54,7 @@
             this.StartButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("StartButton.BackgroundImage")));
             this.StartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.StartButton.Font = new System.Drawing.Font("OCR A Extended", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartButton.ForeColor = System.Drawing.Color.Black;
             this.StartButton.Location = new System.Drawing.Point(12, 531);
             this.StartButton.Name = "StartButton";
@@ -75,7 +70,7 @@
             this.LeaderboardButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LeaderboardButton.BackgroundImage")));
             this.LeaderboardButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LeaderboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LeaderboardButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LeaderboardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LeaderboardButton.ForeColor = System.Drawing.Color.Black;
             this.LeaderboardButton.Location = new System.Drawing.Point(12, 741);
             this.LeaderboardButton.Name = "LeaderboardButton";
@@ -89,25 +84,15 @@
             // 
             this.ExitButton.BackColor = System.Drawing.Color.Transparent;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ExitButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitButton.ForeColor = System.Drawing.Color.Firebrick;
-            this.ExitButton.Location = new System.Drawing.Point(1777, 913);
+            this.ExitButton.Location = new System.Drawing.Point(1691, 955);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(239, 60);
             this.ExitButton.TabIndex = 3;
             this.ExitButton.Text = "E&XIT";
             this.ExitButton.UseVisualStyleBackColor = false;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
-            // btnGameOver
-            // 
-            this.btnGameOver.Location = new System.Drawing.Point(262, 185);
-            this.btnGameOver.Name = "btnGameOver";
-            this.btnGameOver.Size = new System.Drawing.Size(355, 291);
-            this.btnGameOver.TabIndex = 4;
-            this.btnGameOver.Text = "Go to GAME OVER";
-            this.btnGameOver.UseVisualStyleBackColor = true;
-            this.btnGameOver.Click += new System.EventHandler(this.btnGameOver_Click);
             // 
             // lblGameTitle
             // 
@@ -116,11 +101,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGameTitle.AutoSize = true;
             this.lblGameTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblGameTitle.Font = new System.Drawing.Font("OCR A Extended", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameTitle.ForeColor = System.Drawing.Color.SandyBrown;
-            this.lblGameTitle.Location = new System.Drawing.Point(405, 9);
+            this.lblGameTitle.Font = new System.Drawing.Font("ROG Fonts", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameTitle.ForeColor = System.Drawing.Color.MistyRose;
+            this.lblGameTitle.Location = new System.Drawing.Point(10, 10);
             this.lblGameTitle.Name = "lblGameTitle";
-            this.lblGameTitle.Size = new System.Drawing.Size(1293, 123);
+            this.lblGameTitle.Size = new System.Drawing.Size(903, 72);
             this.lblGameTitle.TabIndex = 5;
             this.lblGameTitle.Text = "ARMOURED DEFENDER";
             // 
@@ -138,7 +123,7 @@
             this.lblRules.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lblRules.BackgroundImage")));
             this.lblRules.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.lblRules.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.lblRules.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRules.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRules.Location = new System.Drawing.Point(12, 924);
             this.lblRules.Name = "lblRules";
             this.lblRules.Size = new System.Drawing.Size(485, 122);
@@ -147,56 +132,23 @@
             this.lblRules.UseVisualStyleBackColor = false;
             this.lblRules.Click += new System.EventHandler(this.lblRules_Click);
             // 
-            // pbTankBody
-            // 
-            this.pbTankBody.BackColor = System.Drawing.Color.Transparent;
-            this.pbTankBody.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbTankBody.BackgroundImage")));
-            this.pbTankBody.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbTankBody.Location = new System.Drawing.Point(1088, 924);
-            this.pbTankBody.Name = "pbTankBody";
-            this.pbTankBody.Size = new System.Drawing.Size(265, 132);
-            this.pbTankBody.TabIndex = 8;
-            this.pbTankBody.TabStop = false;
-            // 
-            // pbTurret
-            // 
-            this.pbTurret.BackColor = System.Drawing.Color.Transparent;
-            this.pbTurret.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbTurret.BackgroundImage")));
-            this.pbTurret.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbTurret.Location = new System.Drawing.Point(1171, 830);
-            this.pbTurret.Name = "pbTurret";
-            this.pbTurret.Size = new System.Drawing.Size(100, 200);
-            this.pbTurret.TabIndex = 9;
-            this.pbTurret.TabStop = false;
-            // 
             // pbAlien1
             // 
             this.pbAlien1.BackColor = System.Drawing.Color.Transparent;
             this.pbAlien1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbAlien1.BackgroundImage")));
             this.pbAlien1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbAlien1.Location = new System.Drawing.Point(1035, 368);
+            this.pbAlien1.Location = new System.Drawing.Point(620, 401);
             this.pbAlien1.Name = "pbAlien1";
-            this.pbAlien1.Size = new System.Drawing.Size(103, 163);
+            this.pbAlien1.Size = new System.Drawing.Size(89, 193);
             this.pbAlien1.TabIndex = 10;
             this.pbAlien1.TabStop = false;
-            // 
-            // pbLaser
-            // 
-            this.pbLaser.BackColor = System.Drawing.Color.Transparent;
-            this.pbLaser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbLaser.BackgroundImage")));
-            this.pbLaser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbLaser.Location = new System.Drawing.Point(1085, 551);
-            this.pbLaser.Name = "pbLaser";
-            this.pbLaser.Size = new System.Drawing.Size(10, 67);
-            this.pbLaser.TabIndex = 11;
-            this.pbLaser.TabStop = false;
             // 
             // pbAlien2
             // 
             this.pbAlien2.BackColor = System.Drawing.Color.Transparent;
             this.pbAlien2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbAlien2.BackgroundImage")));
             this.pbAlien2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbAlien2.Location = new System.Drawing.Point(70, 41);
+            this.pbAlien2.Location = new System.Drawing.Point(824, 142);
             this.pbAlien2.Name = "pbAlien2";
             this.pbAlien2.Size = new System.Drawing.Size(89, 193);
             this.pbAlien2.TabIndex = 12;
@@ -218,11 +170,22 @@
             this.pbAlien4.BackColor = System.Drawing.Color.Transparent;
             this.pbAlien4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbAlien4.BackgroundImage")));
             this.pbAlien4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbAlien4.Location = new System.Drawing.Point(1768, 705);
+            this.pbAlien4.Location = new System.Drawing.Point(77, 190);
             this.pbAlien4.Name = "pbAlien4";
-            this.pbAlien4.Size = new System.Drawing.Size(181, 135);
+            this.pbAlien4.Size = new System.Drawing.Size(373, 311);
             this.pbAlien4.TabIndex = 14;
             this.pbAlien4.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(620, 880);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(178, 166);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // StartForm
             // 
@@ -232,20 +195,17 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1942, 1102);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbAlien4);
             this.Controls.Add(this.pbAlien3);
             this.Controls.Add(this.pbAlien2);
-            this.Controls.Add(this.pbLaser);
             this.Controls.Add(this.pbAlien1);
-            this.Controls.Add(this.pbTankBody);
             this.Controls.Add(this.lblRules);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblGameTitle);
-            this.Controls.Add(this.btnGameOver);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.LeaderboardButton);
             this.Controls.Add(this.StartButton);
-            this.Controls.Add(this.pbTurret);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(1600, 900);
@@ -253,13 +213,11 @@
             this.Text = "Armoured Defender";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.StartForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbTankBody)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTurret)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLaser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,17 +227,14 @@
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button LeaderboardButton;
         private System.Windows.Forms.Button ExitButton;
-        private System.Windows.Forms.Button btnGameOver;
         private System.Windows.Forms.Label lblGameTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button lblRules;
-        private System.Windows.Forms.PictureBox pbTankBody;
-        private System.Windows.Forms.PictureBox pbTurret;
         private System.Windows.Forms.PictureBox pbAlien1;
-        private System.Windows.Forms.PictureBox pbLaser;
         private System.Windows.Forms.PictureBox pbAlien2;
         private System.Windows.Forms.PictureBox pbAlien3;
         private System.Windows.Forms.PictureBox pbAlien4;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -119,33 +119,26 @@
   </resheader>
   <data name="lblRules.Text" xml:space="preserve">
     <value>-----------------------------------------------------
-You have 3 lives
-
-If an alien hits the tank, you lose a life 
-
-If an alien touches the ground it is GAME OVER
+Don't let the Aliens touch the ground!
 -----------------------------------------------------
-|
-|
+Defend your territory by moving around with A and D,
+and shoooting with Space
 -----------------------------------------------------
-
-Each alien is different. They have different attacks. 
------------------------------------------------------
-|
-|
------------------------------------------------------
-There are three powerpups that can spawn:
-1. Machine gun turret 
-2. Projectile Turret 
-3. Restores one life 
------------------------------------------------------
-|
-|
------------------------------------------------------
-Controls:
-- Use 'a' and 'd' to move the tank 
-- Use the mouse to aim 
-- Press spacebar to shoot
+Aliens:
+Grounder --
+    Speedy, and goes for the ground fast.
+    Best to shoot it down quick.
+Waver--
+    Travels horizontally until it comes across an
+    obstacle, to which it moves down and changes
+    direction.
+    The more aliens there are for this guy to bump
+    into, the more threataning it is.
+Avoider--
+    Master dodger.
+    If it sees a laser in front of it, it'll move out of
+    the way.
+    You must catch it off-guard.
 -----------------------------------------------------</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />

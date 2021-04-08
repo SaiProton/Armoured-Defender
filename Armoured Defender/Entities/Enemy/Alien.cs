@@ -165,7 +165,6 @@ namespace Armoured_Defender.Entities.Enemy
             EntityManager.score += pointValue;
 
             alienSpawnRate = Math.Max(5, (int)Math.Ceiling(initialAlienSpawnRate - EntityManager.score / (double)spawnPointDelimeter));
-            Console.WriteLine(alienSpawnRate);
         }
 
         // updates the alien depending on its behaviour, which is why it is an abstract method here,

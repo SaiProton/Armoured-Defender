@@ -31,8 +31,6 @@ namespace Armoured_Defender
 
         }
 
-
-
         private void StartButton_Click(object sender, EventArgs e)
         {
             player.Stop();
@@ -55,16 +53,6 @@ namespace Armoured_Defender
         {
             //All operations are terminated --> All forms close down
             Application.Exit();
-        }
-
-
-
-        //DELETE THIS AFTER WE KNOW IT WORKS 
-        private void btnGameOver_Click(object sender, EventArgs e)
-        {
-            
-            new GameOverForm().Show();
-            Hide();
         }
 
         private void lblRules_Click(object sender, EventArgs e)
