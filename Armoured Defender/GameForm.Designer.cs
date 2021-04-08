@@ -68,7 +68,6 @@
             this.Name = "GameForm";
             this.Text = "ARMOURED DEFENDER";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.GameForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
