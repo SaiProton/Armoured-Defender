@@ -1,8 +1,8 @@
+: (
+: )
+YES
 HEY
-EGG
-EGG
-EGG
-EGG
+HII
 EGG
 EGG
 EGG
