@@ -56,8 +56,10 @@ namespace Armoured_Defender
 
                 txbname.Show();
                 txbname.Text = "";
-
                 btnEnter.Show();
+
+                //Shows the score of the user 
+                lblScore.Text = "Your Score Was: " + EntityManager.score;
             }
             //If the user is not in the top 10 then the special labels and textboxes are hidden 
             else
@@ -66,10 +68,15 @@ namespace Armoured_Defender
                 lblLeadConfirm.Hide();
                 txbname.Hide();
                 btnEnter.Hide();
+
+                //Shows the score of the user 
+                lblScore.Text = "Your Score Was: " + EntityManager.score;
+
+                //Resets the score for the next player 
+                EntityManager.score = 0;
             }
 
-            //Shows the score of the user 
-            lblScore.Text = "Your Score Was: " + EntityManager.score;
+            
 
         }
 
@@ -187,6 +194,9 @@ namespace Armoured_Defender
 
         private void btnGoToMain_Click(object sender, EventArgs e)
         {
+            //Resets the score for the next player 
+            EntityManager.score = 0;
+
             player.Stop();
 
             ////Shows the main menu form and hides the current form 
