@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Armoured_Defender.Entities.Utils;
 
 namespace Armoured_Defender
 {
@@ -48,7 +49,7 @@ namespace Armoured_Defender
 
             //Checks to see if the user is in the top 10 range 
             //If the user is in the top 10 range then they are shown labels and textboxes that are usually hidden 
-            if (GameForm.gameScore > Int32.Parse(arrUserscores[9]))
+            if (EntityManager.score > Int32.Parse(arrUserscores[9]))
             {
                 lblGetName.Show();
                 lblLeadConfirm.Show();
@@ -65,7 +66,7 @@ namespace Armoured_Defender
             }
 
             //Shows the score of the user 
-            lblScore.Text = "Your Score Was: " + GameForm.gameScore;
+            lblScore.Text = "Your Score Was: " + EntityManager.score;
 
         }
 
@@ -83,7 +84,7 @@ namespace Armoured_Defender
             else
             {
                 string userName = txbname.Text;
-                string userScore = GameForm.gameScore.ToString();
+                string userScore = EntityManager.score.ToString();
 
                 //Replaces the 10 name and score with the current name and score of the user 
                 arrUserscores[9] = userScore;
@@ -115,6 +116,11 @@ namespace Armoured_Defender
                 File.WriteAllText(sUsernamesFilePath, usernamesMessage);
                 File.WriteAllText(sUserscoresFilePath, userscoresMessage);
 
+                // After user enters score, go back to the start screen
+                player.Stop();
+
+                new StartForm().Show();
+                Hide();
             }
         }
 

@@ -50,6 +50,7 @@
     <Compile Include="Entities\Player\Ball.cs" />
     <Compile Include="Entities\Player\Cannon.cs" />
     <Compile Include="Entities\Player\Tank.cs" />
+    <Compile Include="Entities\Utils\EntityManager.cs" />
     <Compile Include="GameForm.cs">
       <SubType>Form</SubType>
     </Compile>

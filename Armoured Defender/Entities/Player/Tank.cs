@@ -5,79 +5,61 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using Armoured_Defender.Entities.Utils;
 
 namespace Armoured_Defender.Entities.Player
 {
     class Tank
     {
-        public static int scaleFactor = 15;
+        public int position = 4;
 
-        private int yPos;
-        private double xPos;
-
-        private double acceleration = 0;
-        private double velocity = 0;
-
-        private const double frictionFactor = -0.25;
-        private const double bounciFactor = 0.25;
+        public bool canShoot = true;
+        public int shootDelayTicks = 4;
 
         public PictureBox tankGraphic;
-        private const string tankGraphicPath = "../../Resources/Entities/Player/TANK-02.png";
+        private const string tankGraphicPath = "../../Resources/Entities/Player/TANK-03.png";
 
-        public Cannon cannon;
-
-        public Tank(int formWidth, int formHeight) 
+        public Tank() 
         {
-            tankGraphic = DefineTankGraphic(formWidth, scaleFactor);
-
-            yPos = formHeight - tankGraphic.Height;
-            xPos = formWidth / 2;
-
-            tankGraphic.Location = new Point((int)xPos, (int)yPos);
-
-            cannon = new Cannon(tankGraphic.Location, tankGraphic.Width);
+            tankGraphic = DefineTankGraphic();
         }
 
-        private PictureBox DefineTankGraphic(int formWidth, int scaleDownFactor)
+        private PictureBox DefineTankGraphic()
         {
-            Image tempImg = Image.FromFile(tankGraphicPath);
-            double aspectRatio = tempImg.Width / tempImg.Height;
-
-            return new PictureBox
+            PictureBox graphic = new PictureBox
             {
                 Name = "Tank",
-                Size = new Size((int)(aspectRatio * formWidth / scaleDownFactor), formWidth / scaleDownFactor),
+                Size = new Size((int)(2 * GameForm.unitWidth), (int)GameForm.unitHeight),
                 ImageLocation = tankGraphicPath,
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.Transparent
             };
+
+            graphic.Location = new Point((int)(position * 3 * GameForm.unitWidth + GameForm.unitWidth), Screen.PrimaryScreen.Bounds.Height - graphic.Height);
+
+            return graphic;
         }
 
-        public void Update()
+        public void UpdatePosition(Keys keyPress)
         {
-            velocity += acceleration;
-            xPos += velocity;
-            wallCollisionCheck();
-
-            tankGraphic.Left = (int)xPos;
-
-            acceleration = velocity * frictionFactor;
-
-            cannon.Update((int)xPos);
-        }
-
-        public void SetAcceleration(char pressed)
-        {
-            acceleration = (pressed == 'd' ? 1 : (pressed == 'a' ? -1 : acceleration));
-        }
-
-        private void wallCollisionCheck()
-        {
-            if(xPos + tankGraphic.Width >= Screen.PrimaryScreen.Bounds.Width || xPos <= 0)
+            if(keyPress == Keys.D && position != GameForm.LANES - 1)
             {
-                xPos = Math.Min(Math.Max(xPos, 0), Screen.PrimaryScreen.Bounds.Width - tankGraphic.Width);
-                velocity = -velocity * bounciFactor;
-                acceleration = 0;
+                position++;
+            }
+            else if (keyPress == Keys.A && position != 0)
+            {
+                position--;
+            }
+
+            tankGraphic.Left = (int)(position * 3 * GameForm.unitWidth + GameForm.unitWidth);
+        }
+
+        public void Shoot()
+        {
+            if(canShoot)
+            {
+                EntityManager.laserCollection.Add(new Ball(position));
+                canShoot = false;
             }
         }
     }

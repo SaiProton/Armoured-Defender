@@ -31,13 +31,27 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.ScoreText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // GameTimer
             // 
             this.GameTimer.Enabled = true;
-            this.GameTimer.Interval = 10;
+            this.GameTimer.Interval = 250;
             this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
+            // 
+            // ScoreText
+            // 
+            this.ScoreText.AutoSize = true;
+            this.ScoreText.BackColor = System.Drawing.Color.Transparent;
+            this.ScoreText.Font = new System.Drawing.Font("ROG Fonts", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScoreText.ForeColor = System.Drawing.Color.White;
+            this.ScoreText.Location = new System.Drawing.Point(0, 0);
+            this.ScoreText.Name = "ScoreText";
+            this.ScoreText.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ScoreText.Size = new System.Drawing.Size(84, 72);
+            this.ScoreText.TabIndex = 0;
+            this.ScoreText.Text = "0";
             // 
             // GameForm
             // 
@@ -46,6 +60,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.Controls.Add(this.ScoreText);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -54,11 +69,13 @@
             this.Text = "ARMOURED DEFENDER";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.Label ScoreText;
     }
 }

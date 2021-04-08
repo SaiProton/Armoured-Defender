@@ -12,65 +12,36 @@ namespace Armoured_Defender.Entities.Player
     {
         public PictureBox ballGraphic;
 
-        private Point velocity;
+        public Point position;
 
-        private int shiftXConstant;
-        private int shiftYConstant;
+        private const string ballGraphicPath = "../../Resources/Entities/Player/LASER-01.png";
 
-        private const int scaleDownFactor = 2;
-        private const string ballGraphicPath = "../../Resources/Entities/Player/Ball.png";
-
-        public Ball(Point cannonLocation, int cannonWidth, Point mouseLocation, int initialSpeed)
+        public Ball(int tankPosition)
         {
-            ballGraphic = DefineBallGraphic(cannonWidth);
-
-            shiftXConstant = (int)((cannonWidth - ballGraphic.Width) / 2.0);
-            shiftYConstant = (int)(-ballGraphic.Height / 2.0);
-
-            ballGraphic.Location = new Point(cannonLocation.X + shiftXConstant, cannonLocation.Y + shiftYConstant);
-
-            velocity = SetVelocity(mouseLocation, initialSpeed);
+            position = new Point(tankPosition, GameForm.LANES - 1);
+            ballGraphic = DefineBallGraphic();
         }
 
-        private Point SetVelocity(Point mouseLocation, int initialSpeed)
+        private PictureBox DefineBallGraphic()
         {
-            double angle = Math.Atan2(ballGraphic.Location.Y - mouseLocation.Y, (double)mouseLocation.X - ballGraphic.Location.X);
-
-            int xVel = (int)(initialSpeed * Math.Cos(angle));
-            int yVel = (int)(initialSpeed * Math.Sin(angle));
-
-            Console.WriteLine(angle);
-
-            return new Point(xVel, yVel);
-        }
-
-        private PictureBox DefineBallGraphic(int cannonWidth)
-        {
-            //Image tempImg = Image.FromFile(ballGraphicPath);
-            //double aspectRatio = (double)tempImg.Width / tempImg.Height;
-
-            double aspectRatio = 1;
-
-            return new PictureBox
+            PictureBox graphic = new PictureBox 
             {
                 Name = "Ball",
-                Size = new Size(cannonWidth / scaleDownFactor, (int)((cannonWidth / scaleDownFactor) / aspectRatio)),
-                //ImageLocation = ballGraphicPath,
-                //SizeMode = PictureBoxSizeMode.StretchImage,
-                BackColor = Color.Gray,
+                Size = new Size((int)(GameForm.unitWidth / 2.0), (int)GameForm.unitHeight),
+                ImageLocation = ballGraphicPath,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.Transparent,
             };
+
+            graphic.Location = new Point((int)(position.X * 3 * GameForm.unitWidth + 2 * GameForm.unitWidth - graphic.Width / 2.0), (int)(GameForm.unitHeight * position.Y));
+
+            return graphic;
         }
 
         public void Update()
         {
-            ballGraphic.Left += velocity.X;
-            ballGraphic.Top -= velocity.Y;
-        }
-
-        public bool OutBoundsCheck()
-        {
-            return ballGraphic.Location.X > Screen.PrimaryScreen.Bounds.Width || ballGraphic.Location.X  + ballGraphic.Width < 0 ||
-                   ballGraphic.Location.Y > Screen.PrimaryScreen.Bounds.Height || ballGraphic.Location.Y + ballGraphic.Height < 0;
+            position.Y--;
+            ballGraphic.Top = (int)(GameForm.unitHeight * position.Y);
         }
     }
 }

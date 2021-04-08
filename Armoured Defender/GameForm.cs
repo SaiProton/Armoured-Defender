@@ -1,5 +1,6 @@
 ﻿using Armoured_Defender.Entities.Enemy;
 using Armoured_Defender.Entities.Player;
+using Armoured_Defender.Entities.Utils;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,94 +11,100 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Specialized;
 
 namespace Armoured_Defender
 {
     public partial class GameForm : Form
     {
         private Tank player;
+        private EntityManager entityManager;
 
-        public static int gameScore = 0;
+        public static int ticks;
+        public static bool GAME_OVER;
 
-        public static ObservableCollection<Ball> existingBalls { get; private set; }
-        public static ObservableCollection<Alien> existingAliens { get; private set; }
+        public static readonly int LANES = 10;
+
+        public static readonly double unitWidth = 1.0 / 31.0 * Screen.PrimaryScreen.Bounds.Width;
+        public static readonly double unitHeight = 1.0 / 11.0 * Screen.PrimaryScreen.Bounds.Height;
+
+        private bool keyPress = false;
         
         public GameForm()
         {
             InitializeComponent();
 
-            player = new Tank(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            ticks = 0;
+            GAME_OVER = false;
 
+            player = new Tank();
             Controls.Add(player.tankGraphic);
-            Controls.Add(player.cannon.cannonGraphic);
 
-            KeyPress += GameForm_KeyPress;
+            entityManager = new EntityManager();
 
-            existingBalls = new ObservableCollection<Ball>();
-            existingBalls.CollectionChanged += ExistingBalls_CollectionChanged;
+            EntityManager.laserCollection.CollectionChanged += LaserCollection_CollectionChanged;
+            EntityManager.alienCollection.CollectionChanged += AlienCollection_CollectionChanged;
 
-            existingAliens = new ObservableCollection<Alien>();
-            existingAliens.CollectionChanged += ExistingAliens_CollectionChanged;
+            KeyDown += GameForm_KeyDown;
+            KeyUp += GameForm_KeyUp;
         }
 
-        private void ExistingAliens_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        private void LaserCollection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if(e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+            if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                Controls.Add(existingAliens.Last().alienGraphic);
+                Controls.Add(EntityManager.laserCollection.Last().ballGraphic);
             }
         }
 
-        private void ExistingBalls_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        private void AlienCollection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+            if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                Controls.Add(existingBalls.Last().ballGraphic);
+                Controls.Add(EntityManager.alienCollection.Last().alienGraphic);
             }
+            else if (e.Action == NotifyCollectionChangedAction.Remove)
+            {
+                Controls.Remove(EntityManager.alienToRemove.alienGraphic);
+            }
+        }
+
+        private void GameForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(!keyPress)
+            {
+                keyPress = true;
+
+                if(e.KeyCode == Keys.Space)
+                {
+                    player.Shoot();
+                }
+                else
+                {
+                    player.UpdatePosition(e.KeyCode);
+                }
+            }
+        }
+
+        private void GameForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            keyPress = false;
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            player.Update();
-            
-            for(int i = existingBalls.Count -  1; i >= 0; i--)
+            if(GAME_OVER)
             {
-                if(existingBalls[i].OutBoundsCheck())
-                {
-                    existingBalls.RemoveAt(i);
-                } else
-                {
-                    existingBalls[i].Update();
-                }
+                new GameOverForm().Show();
+                Close();
             }
 
-            for(int i = existingAliens.Count - 1; i >= 0; i--)
-            {
-                existingAliens[i].Update();
-            }
-        }
+            ticks++;
 
-        private void GameForm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == ' ' && existingBalls.Count < player.cannon.maxBalls)
-            {
-                player.cannon.Shoot(Cursor.Position);
-            }
-            else
-            {
-                player.SetAcceleration(e.KeyChar);
-            }
-        }
+            player.canShoot = ticks % player.shootDelayTicks == 0 || player.canShoot;
 
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
-                return cp;
-            }
+            EntityManager.UpdateEntities();
+            ScoreText.Text = EntityManager.score.ToString();
         }
-        
     }
 }
