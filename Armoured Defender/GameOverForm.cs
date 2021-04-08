@@ -86,12 +86,10 @@ namespace Armoured_Defender
             //If the user entered a 3 letter string that string is stored in userName --> userName is a global variable 
             else
             {
-                string userName = txbname.Text;
-                string userScore = EntityManager.score.ToString();
 
                 //Replaces the 10 name and score with the current name and score of the user 
-                arrUserscores[9] = userScore;
-                arrUsernames[9] = userName;
+                arrUserscores[9] = EntityManager.score.ToString();
+                arrUsernames[9] = txbname.Text;
 
                 //Sorts the score and user name array in decreasing order 
                 sortArray();
@@ -121,6 +119,9 @@ namespace Armoured_Defender
 
                 // After user enters score, go back to the start screen
                 player.Stop();
+
+                //Resets the score for the next player 
+                EntityManager.score = 0;
 
                 new StartForm().Show();
                 Hide();
