@@ -101,11 +101,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGameTitle.AutoSize = true;
             this.lblGameTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblGameTitle.Font = new System.Drawing.Font("ROG Fonts", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameTitle.ForeColor = System.Drawing.Color.MistyRose;
+            this.lblGameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameTitle.ForeColor = System.Drawing.Color.SandyBrown;
             this.lblGameTitle.Location = new System.Drawing.Point(10, 10);
             this.lblGameTitle.Name = "lblGameTitle";
-            this.lblGameTitle.Size = new System.Drawing.Size(903, 72);
+            this.lblGameTitle.Size = new System.Drawing.Size(741, 69);
             this.lblGameTitle.TabIndex = 5;
             this.lblGameTitle.Text = "ARMOURED DEFENDER";
             // 
